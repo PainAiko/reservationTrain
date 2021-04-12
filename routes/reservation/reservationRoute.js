@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const reservationController = require('../../controller/reservation/reservationController');
+router.get('/',reservationController.getAllReservation);
+router.get('/:numReserve', reservationController.getReservation);
+router.post('/',reservationController.postAddReservation);
+router.delete('/:numReserve', reservationController.deleteReservation);
+router.put('/:numReserve', reservationController.updateReservation);
+router.get('/visualisation/:numTrain',reservationController.VisualVoyageurParTrain);
+router.get('/recette/:numTrain',reservationController.recetteTrain);
+module.exports = router;

@@ -1,17 +1,10 @@
 const express = require('express'); 
 const router = express.Router();
+const trainController = require('../../controller/train/trainController');
 
-
-router.get('/', (req, res) => {
-      res.status(200).json([{
-          "num":"0122MP",
-          "nom":"Rakoto fra"},
-          {"num":"0754J",
-          "nom":"Doda"},{
-            "num":"011M",
-            "nom":"Dembouz"
-          }
-    ]);
-});
-
+router.get('/', trainController.getAllTrain);
+router.post('/', trainController.postAddTrain);
+router.get('/:numTrain',trainController.getTrain);
+router.delete('/:numTrain',trainController.deleteTrain);
+router.put('/:numTrain',trainController.updateTrain);
 module.exports = router;

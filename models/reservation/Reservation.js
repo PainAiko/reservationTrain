@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 const sequelize = require('../../util/database');
 const Train = require("../train/Train");
 const Voyageur = require("../voyageur/Voyageur");
-
+const moment = require('moment');
 const Reservation = sequelize.define('reservations',{
     numReserve:{
         type:Sequelize.INTEGER,
@@ -29,6 +29,9 @@ const Reservation = sequelize.define('reservations',{
     },
     dateReserve:{
         type: Sequelize.DATEONLY,
+     /*   get:function() {
+            return moment.utc(this.getDataValue('DATETIME')).format('DD/MM/YYYY')
+        },*/
         allowNull: false
     },
     frais:{
